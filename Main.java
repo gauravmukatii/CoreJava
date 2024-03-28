@@ -14,6 +14,5 @@ public class Main {
         Child child = new Child();
         child.m1();
         child.m1();
-        super.m1();
     }
 }
