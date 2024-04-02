@@ -3,15 +3,13 @@ import java.io.FileReader;
 
 public class Demo{
 
-    public void divide(int a, int b){
+    public void divide(int a, int b) throws Exception{
         System.out.println("divide method -- started");
         try {
             int c = a / b;
             System.out.println(c);
         }catch (Exception e){
-            e.printStackTrace();
-            System.err.println("Error occured");
-            System.out.println("catch block");
+            throw new InvalidNumberException("Invalid number");
         }finally {
             System.out.println("finally block");
         }
