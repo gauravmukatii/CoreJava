@@ -3,6 +3,23 @@ import java.io.FileReader;
 
 public class Demo{
 
+    public void divide(int a, int b){
+        System.out.println("divide method -- started");
+        try {
+            int c = a / b;
+            System.out.println(c);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("Error occured");
+            System.out.println("catch block");
+        }finally {
+            System.out.println("finally block");
+        }
+
+        System.out.println("divide method -- ended");
+    }
+
+
     public String getName(int id) throws Exception{
         if(id == 100){
             return "rani";
@@ -13,10 +30,15 @@ public class Demo{
         }
     }
     public static void main(String[] args) throws Exception {    //it is used to ignore compile time exception
-        FileReader file = new FileReader("abc.txt");
+//        FileReader file = new FileReader("abc.txt");
 
+        System.out.println("Main method started ...");
         int id = 100;
         Demo demo = new Demo();
-        demo.getName(id);
+        String name = demo.getName(id);
+        System.out.println(name);
+
+        demo.divide(100, 0);
+        System.out.println("Main method ended ...");
     }
 }
