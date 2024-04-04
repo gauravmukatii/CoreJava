@@ -1,6 +1,5 @@
 public class SyncBlock implements Runnable{
 
-
     //not thread safe
     //without async both threads execute together
     public void printNums1(){
@@ -27,9 +26,26 @@ public class SyncBlock implements Runnable{
             }
         }
     }
+
+    //synchronised block we can use instead of making full method asynchronised
+    public void printNums2(){
+
+        synchronized (this){
+            for(int i = 1; i <= 10; i++){
+                System.out.println(Thread.currentThread().getName() + "::" + i);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
     public void run(){
 //        printNums1();
-        printNums();
+        printNums2();
+//        printNums();
     }
 
     public static void main(String[] args) {
