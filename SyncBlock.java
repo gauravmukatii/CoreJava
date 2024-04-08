@@ -16,6 +16,7 @@ public class SyncBlock implements Runnable{
 
     //thread safe
     //synchronized method , 1 thread is complete then only another thread will execute
+
     public synchronized void printNums(){
         for(int i = 1; i <= 10; i++){
             System.out.println(Thread.currentThread().getName() + "::" + i);
